@@ -1,0 +1,42 @@
+¡Perfecto! Aquí te dejo un pequeño resumen con los puntos clave que trabajamos hoy, Jose — así mañana seguimos sin perdernos:
+
+---
+
+### 🗂️ **Resumen del avance con la app de inventario de medicamentos**
+
+#### 🏗️ Estructura base
+- Usas Jetpack Compose con Navigation Drawer.
+- Tienes Room implementado y `MedicinaRepository` ya preparado.
+- No estás usando Hilt por ahora; inyectas dependencias manualmente desde `MainActivity`.
+
+#### 🩺 Pantalla de Inventario
+- Mostramos una lista de `Medicamentos` usando `LazyColumn`.
+- Pasamos el `MedicinaViewModel` directamente al `InventarioScreen`.
+
+#### 🧮 Lógica de cálculo añadida
+- `consumoDiario`: suma de los dígitos de `dosis`, con un tratamiento especial: si un dígito es `5`, se suma como `0.5`.
+- `diasDisponibles`, `fechaFinStock`, `semanasPendientes`: propiedades calculadas basadas en `stock` y `consumoDiario`.
+
+#### 🎨 Mejora visual con colores
+- Cambia el color de fondo del `Card` según las semanas disponibles:
+  - 0 → rojo (muy peligroso)
+  - 1 → naranja
+  - 2 → amarillo
+  - ≥3 → verde
+
+---
+
+📌 Además hablamos sobre:
+
+- Cómo extender la entidad `Medicina` con propiedades calculadas (sin que Room dé errores).
+- El uso de `fallbackToDestructiveMigration()` o `addMigrations()` si cambias la entidad.
+- Buenas prácticas para no guardar datos redundantes que puedes derivar (como `consumoDiario`).
+
+---
+
+Mañana, si quieres, podemos seguir con:
+- Agregar buscador o filtrado 📱
+- Editar datos en línea o desde un diálogo 📝
+- Exportar información, notificaciones o backups 🧾🔔
+
+Aquí estaré listo cuando regreses. ¡Buen descanso y que no sueñes con Room throwing exceptions! 😄🌙💤
